@@ -1,0 +1,11 @@
+
+<section>
+
+  <h2>Proyects</h2>
+
+  <article class="proyect-list">
+    <circle *ngFor="let proyect of (proyectList | filterProyectsByWord:searchTerm | sortProyects:sortingValue)" [text]="proyect.name" [link]="proyect.link" bgColor="proyects"></circle>
+  </article>
+
+</section>
+

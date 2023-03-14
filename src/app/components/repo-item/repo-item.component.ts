@@ -11,11 +11,15 @@ import { CommitListComponent } from '../commit-list/commit-list.component';
 export class RepoItemComponent implements OnInit {
   @Input() repo: Repository | undefined;
 
+  get showRepo() {
+    return this.repo && this.repo.commits && this.repo.commits.length && this.repo.commits[this.repo.commits.length - 1]?.creation
+  }
+
+  
+
   constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    // I open the repo you are interested in
-    // This is not a scalabale code but it serves for this
   }
 
 

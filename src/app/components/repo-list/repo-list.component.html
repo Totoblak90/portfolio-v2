@@ -1,19 +1,12 @@
 
-<section *ngIf="!loading; else spinner">
+<section>
 
-  <h2>Repositories</h2>
+  <h2>Repositories  <span [ngClass]="{'disappear': !this.fetchingData}">(Sorting and filtering will be available after loading repos ends)</span></h2>
 
   <article class="repo-list" *ngIf="repoList.length">
     <ng-container *ngFor="let repo of (repoList | filterByWord:searchTerm | sortRepos:sortingValue)">
-      <repo-item *ngIf="repo && repo.commits && repo.commits.length && repo.commits[repo.commits.length - 1]?.creation"  [repo]="repo"></repo-item>
+      <repo-item  [repo]="repo"></repo-item>
     </ng-container>
   </article>
 
 </section>
-
-<ng-template #spinner>
-  <div class="loader">
-    <i class="loader__icon fa fa-cog"></i>
-    <div class="loader__text">Please have patience, this will take a while. In the mean time you can check my projects</div>
-  </div>
-</ng-template>

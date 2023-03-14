@@ -30,7 +30,6 @@ export class HeaderComponent {
     this.filterForm.get('search')?.valueChanges
       .pipe(takeUntil(this._destroy$),debounceTime(300))
       .subscribe((term: string) => {
-        console.log(term)
         this.filtersService.searchTerm.next(term)
       })
   }

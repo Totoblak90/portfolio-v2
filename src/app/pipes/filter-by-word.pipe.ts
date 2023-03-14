@@ -10,7 +10,7 @@ export class FilterByWordPipe implements PipeTransform {
 
     try {
       if (searchTerm) {
-        return repositories.filter(repo => repo.name.includes(searchTerm))
+        return repositories.filter(repo => repo.name.toLowerCase().includes(searchTerm.toLowerCase()))
       } else {
         return repositories
       }

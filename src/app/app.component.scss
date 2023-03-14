@@ -32,7 +32,15 @@
 
 
 main {
-  padding: $padding-huge $padding-xs;
+  padding:  0 $padding-xs;
   width: 100%;
   margin-top: 177px;
+
+  @media (min-width: 505px) {
+    margin-top: 141px;
+  }
+
+  @media (min-width: 768px) {
+    margin-top: 210px;
+  }
 }

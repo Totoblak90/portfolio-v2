@@ -1,3 +1,2 @@
-<button class="circle" *ngIf="repo" (click)="seeMore()">
-  <p>{{ repo.name }}</p>
-</button>
+<circle *ngIf="showRepo" [text]="repo?.name || ''" bgColor="repos" (onClick)="seeMore()"></circle>
+<circle *ngIf="!showRepo" text="Loading repo..." bgColor="danger"></circle>

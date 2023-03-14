@@ -1,8 +1,6 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Repository } from 'src/app/interface/repository.interface';
 import { HttpService } from 'src/app/services/http.service';
-import { FormGroup, FormBuilder } from '@angular/forms';
-import { debounceTime, Subject, takeUntil } from 'rxjs';
 import { Commit } from 'src/app/interface/commit.interface';
 import { fakeRepos } from '../../constants/placeholders';
 import { FiltersService } from '../../services/filters.service';
@@ -20,10 +18,12 @@ export class RepoListComponent {
   fetchingData = true;
 
   get searchTerm() {
+    if (this.fetchingData) return '';
     return this.filtersService.searchTerm.value
   }
 
-  get sortingValue() {
+  get sortingValue():'A-Z' | 'Z-A' {
+    if (this.fetchingData) return 'A-Z';
     return this.filtersService.sortingValue.value
   }
 
@@ -36,7 +36,12 @@ export class RepoListComponent {
       this.repoList = res;
 
       if (this.repoList && this.repoList.length) {
-        await this.fillCommits();
+        try {
+          await this.fillCommits();
+        } catch (error) {
+          console.log('fetchRepos: ', error);
+          this.fetchingData = false;
+        }
       }
 
     })
@@ -52,11 +57,21 @@ export class RepoListComponent {
 
         if (commits && this.repoList[i]) {
           this.repoList[i].commits = commits.commits;
-          await this.updateCommitDate(i);
+          try {
+            await this.updateCommitDate(i);
+          } catch (error) {
+            console.log('fillCommits: ', error);
+            this.fetchingData = false;
+            break;
+          }
         }
 
       }
+
+      if (i === max - 1) this.fetchingData = false;
     }
+
+
   }
 
   private async updateCommitDate(i: number) {
@@ -66,16 +81,20 @@ export class RepoListComponent {
       for (let j = 0; j < max; j++) {
 
         if (this.repoList[i].commits[j]) {
-          const commitDate = await this.httpService.fetchCommitCreationDate(this.repoList[i], this.repoList[i].commits[j]);
-          if (commitDate) {
-            this.repoList[i].commits[j].creation = commitDate.creationDate;
-            this.loading = false;
+          try {
+            const commitDate = await this.httpService.fetchCommitCreationDate(this.repoList[i], this.repoList[i].commits[j]);
+            if (commitDate) {
+              this.repoList[i].commits[j].creation = commitDate.creationDate;
+              this.loading = false;
+            }
+          } catch (error) {
+            console.log('updateCommitDate: ', error);
+            this.fetchingData = false;
+            break;
           }
         }
 
       }
-
-      this.fetchingData = false;
 
     }
   }

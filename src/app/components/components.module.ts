@@ -11,6 +11,7 @@ import { AngularMaterialModule } from '../angular-material/angular-material.modu
 import { PipesModule } from '../pipes/pipes.module';
 import { DirectivesModule } from '../directives/directives.module';
 import { HeaderComponent } from './header/header.component';
+import { ProyectListComponent } from './proyect-list/proyect-list.component';
 
 
 
@@ -23,6 +24,7 @@ import { HeaderComponent } from './header/header.component';
     CommitComponent,
     FilterComponent,
     HeaderComponent,
+    ProyectListComponent
   ],
   exports: [
     RepoListComponent,
@@ -31,6 +33,7 @@ import { HeaderComponent } from './header/header.component';
     CommitComponent,
     FilterComponent,
     HeaderComponent,
+    ProyectListComponent
   ],
   imports: [
     CommonModule,

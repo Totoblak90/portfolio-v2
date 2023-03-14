@@ -1,12 +1,6 @@
 @import "src/theme/variables";
 @import "src/theme/animations.scss";
 
-:host {
-  position: relative;
-  display: block;
-  min-height: 35rem;
-}
-
 section {
   max-width: 128rem;
   margin: auto;
@@ -14,8 +8,9 @@ section {
     text-align: left;
   }
 
-  .repo-list {
+  .proyect-list {
     margin: auto;
+    margin-bottom: $margin-large;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     row-gap: $margin-large;
@@ -26,8 +21,4 @@ section {
       grid-template-columns: repeat(3, 1fr);
     }
   }
-}
-
-.disappear {
-  display: none;
 }

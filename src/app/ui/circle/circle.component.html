@@ -1,0 +1,27 @@
+<button class="circle" (click)="onClick.emit()" [ngClass]="backgroundColor" *ngIf="!isLoading; else spinner">
+
+  <ng-container [ngSwitch]="link">
+    <ng-container *ngSwitchCase="''">
+      <p>{{ text }}</p>
+    </ng-container>
+    <ng-container *ngSwitchDefault>
+      <a [href]="link" target="_blank"><p>{{ text }}</p></a>
+    </ng-container>
+  </ng-container>
+
+</button>
+
+
+
+<ng-template #spinner>
+
+  <button class="circle" (click)="onClick.emit()" [ngClass]="backgroundColor">
+
+    <div class="loader">
+      <i class="loader__icon fa fa-cog"></i>
+      <p class="loader__text">{{ text }}</p>
+    </div>
+
+  </button>
+
+</ng-template>

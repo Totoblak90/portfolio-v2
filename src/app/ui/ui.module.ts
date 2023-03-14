@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { InputComponent } from './input/input.component';
 import { FaIconComponent } from './fa-icon/fa-icon.component';
 import { DirectivesModule } from '../directives/directives.module';
+import { CircleComponent } from './circle/circle.component';
 
 
 
@@ -10,10 +11,12 @@ import { DirectivesModule } from '../directives/directives.module';
   declarations: [
     InputComponent,
     FaIconComponent,
+    CircleComponent,
   ],
   exports: [
     InputComponent,
     FaIconComponent,
+    CircleComponent
   ],
   imports: [
     CommonModule,
