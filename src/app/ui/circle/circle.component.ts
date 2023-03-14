@@ -23,7 +23,7 @@ export class CircleComponent {
   }
 
   get isLoading() {
-    return this.text === 'Loading repo...'
+    return this.text.toLowerCase().includes('loading')
   }
 
 }
