@@ -4,7 +4,12 @@
   position: relative;
   h2 {
     margin-top: $margin-small;
-    color: $color-primary;
+    a {
+        font-size: $font-size-h2-mobile;
+        @media (min-width: 768px) {
+          font-size: $font-size-h2;
+        }
+    }
   }
   h3 {
     text-align: center;
