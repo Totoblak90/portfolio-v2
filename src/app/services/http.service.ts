@@ -10,12 +10,16 @@ import { Repository } from '../interface/repository.interface';
 export class HttpService {
 
   private apiBaseUrl = 'http://localhost:3000/api'
+  private baseUrl = window.location.origin;
 
   constructor(private http: HttpClient) {}
 
   allRepos(): Observable<Repository[]> {
-    const baseUrl = window.location.origin;
-    return this.http.post<Repository[]>(`${baseUrl}/.netlify/functions/fetch_repos-background`, {})
+    return this.http.post<Repository[]>(`${this.baseUrl}/.netlify/functions/fetch_repos`, {})
+  }
+
+  addCommitToRepo(repo: Repository) {
+    return this.http.post<Repository>(`${this.baseUrl}/.netlify/functions/map_commits`, {repo})
   }
 
   filterReposByName(term: string) {

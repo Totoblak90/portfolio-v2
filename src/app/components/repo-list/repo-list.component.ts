@@ -31,8 +31,18 @@ export class RepoListComponent implements OnDestroy {
 
   private fetchRepos() {
     this.httpService.allRepos().subscribe(res => {
-      this.repoList = res
+      this.repoList = res;
+
+      for (const repo of this.repoList) {
+        console.log(repo)
+        this.addCommits(repo)
+      }
+
     })
+  }
+
+  private addCommits(repo: Repository) {
+    this.httpService.addCommitToRepo(repo)
   }
 
   private subscribeToSearchValueChanges() {
