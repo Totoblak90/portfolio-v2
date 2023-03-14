@@ -1,0 +1,41 @@
+@import "src/theme/variables";
+
+header {
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  background-color: #fff;
+  h1 {
+    text-align: center;
+  }
+
+  .search-container {
+    width: 100%;
+    max-width: 768px;
+    margin: auto;
+    margin-bottom: $margin-medium;
+
+    form {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 20px;
+
+      fa-input {
+        width: 100%;
+        color: #000;
+        font-weight: 900;
+        font-size: $font-size-default;
+
+        @media (min-width: 768px) {
+          font-size: $font-size-xl;
+        }
+      }
+    }
+
+  }
+
+}
+

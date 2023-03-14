@@ -4,32 +4,31 @@ import { HttpService } from 'src/app/services/http.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { debounceTime, Subject, takeUntil } from 'rxjs';
 import { Commit } from 'src/app/interface/commit.interface';
+import { fakeRepos } from '../../constants/placeholders';
+import { FiltersService } from '../../services/filters.service';
 
 @Component({
   selector: 'repo-list',
   templateUrl: './repo-list.component.html',
   styleUrls: ['./repo-list.component.scss']
 })
-export class RepoListComponent implements OnDestroy {
-
-  filterForm: FormGroup = this.fb.group({
-    search: [''],
-    sort: ['A-Z']
-  })
+export class RepoListComponent {
 
   repoList: Repository[]  = [];
 
   loading = true;
+  fetchingData = true;
 
-  private _destroy$ = new Subject();
-
-  get sortingValue() {
-    return this.filterForm.get('sort')?.value;
+  get searchTerm() {
+    return this.filtersService.searchTerm.value
   }
 
-  constructor(private httpService: HttpService, private fb: FormBuilder) {
+  get sortingValue() {
+    return this.filtersService.sortingValue.value
+  }
+
+  constructor(private httpService: HttpService, private filtersService: FiltersService) {
     this.fetchRepos();
-    this.subscribeToSearchValueChanges();
   }
 
   private async fetchRepos() {
@@ -76,27 +75,8 @@ export class RepoListComponent implements OnDestroy {
 
       }
 
+      this.fetchingData = false;
+
     }
-  }
-
-  private subscribeToSearchValueChanges() {
-    this.filterForm.get('search')?.valueChanges
-      .pipe(takeUntil(this._destroy$),debounceTime(750))
-      .subscribe(term => {
-        if (!term) {
-          this.fetchRepos();
-        } else {
-          this.filterRepos(term);
-        }
-      })
-  }
-
-  private filterRepos(term: string) {
-    this.httpService.filterReposByName(term).subscribe(repos => this.repoList = repos)
-  }
-
-  ngOnDestroy(): void {
-    this._destroy$.next(true);
-    this._destroy$.unsubscribe();
   }
 }

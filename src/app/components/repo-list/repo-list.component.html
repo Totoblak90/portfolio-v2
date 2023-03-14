@@ -1,29 +1,10 @@
 
 <section *ngIf="!loading; else spinner">
 
-  <article class="search-container">
-
-    <form [formGroup]="filterForm">
-
-      <fa-input icon="magnifying-glass">
-        <input type="search" placeholder="Filter by name" formControlName="search"/>
-      </fa-input>
-
-
-      <fa-input icon="sort">
-        <select formControlName="sort">
-          <option value="A-Z">A-Z</option>
-          <option value="Z-A">Z-A</option>
-        </select>
-      </fa-input>
-
-    </form>
-
-  </article>
-
+  <h2>Repositories</h2>
 
   <article class="repo-list" *ngIf="repoList.length">
-    <ng-container *ngFor="let repo of (repoList | sortRepos:sortingValue)">
+    <ng-container *ngFor="let repo of (repoList | filterByWord:searchTerm | sortRepos:sortingValue)">
       <repo-item *ngIf="repo && repo.commits && repo.commits.length && repo.commits[repo.commits.length - 1]?.creation"  [repo]="repo"></repo-item>
     </ng-container>
   </article>

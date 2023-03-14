@@ -1,0 +1,24 @@
+<header>
+  <h1>Tobias Blaksley's portfolio and repos</h1>
+
+  <article class="search-container">
+
+    <form [formGroup]="filterForm">
+
+      <fa-input icon="magnifying-glass">
+        <input type="search" placeholder="Filter by name" formControlName="search"/>
+      </fa-input>
+
+
+      <fa-input icon="sort">
+        <select formControlName="sort">
+          <option value="A-Z">A-Z</option>
+          <option value="Z-A">Z-A</option>
+        </select>
+      </fa-input>
+
+    </form>
+
+  </article>
+</header>
+

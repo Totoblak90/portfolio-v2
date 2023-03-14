@@ -2,7 +2,7 @@
 
 .background-img {
   position: fixed;
-  top: 0;
+  top: 177px;
   left: 0;
   width: 100%;
   height: 100vh;
@@ -34,7 +34,5 @@
 main {
   padding: $padding-huge $padding-xs;
   width: 100%;
-  h1 {
-    text-align: center;
-  }
+  margin-top: 177px;
 }

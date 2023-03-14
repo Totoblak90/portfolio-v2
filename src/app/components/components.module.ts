@@ -10,6 +10,7 @@ import { UiModule } from '../ui/ui.module';
 import { AngularMaterialModule } from '../angular-material/angular-material.module';
 import { PipesModule } from '../pipes/pipes.module';
 import { DirectivesModule } from '../directives/directives.module';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -21,6 +22,7 @@ import { DirectivesModule } from '../directives/directives.module';
     CommitListComponent,
     CommitComponent,
     FilterComponent,
+    HeaderComponent,
   ],
   exports: [
     RepoListComponent,
@@ -28,6 +30,7 @@ import { DirectivesModule } from '../directives/directives.module';
     CommitListComponent,
     CommitComponent,
     FilterComponent,
+    HeaderComponent,
   ],
   imports: [
     CommonModule,
