@@ -1,5 +1,5 @@
 
-<section>
+<section *ngIf="!loading; else spinner">
 
   <article class="search-container">
 
@@ -23,7 +23,16 @@
 
 
   <article class="repo-list" *ngIf="repoList.length">
-    <repo-item *ngFor="let repo of (repoList | sortRepos:sortingValue)" [repo]="repo"></repo-item>
+    <ng-container *ngFor="let repo of (repoList | sortRepos:sortingValue)">
+      <repo-item *ngIf="repo && repo.commits && repo.commits.length && repo.commits[repo.commits.length - 1]?.creation"  [repo]="repo"></repo-item>
+    </ng-container>
   </article>
 
 </section>
+
+<ng-template #spinner>
+  <div class="loader">
+    <i class="loader__icon fa fa-cog"></i>
+    <div class="loader__text">Please have patience, this will take a while. In the mean time you can check my projects</div>
+  </div>
+</ng-template>

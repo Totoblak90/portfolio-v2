@@ -3,6 +3,7 @@ import { Repository } from 'src/app/interface/repository.interface';
 import { HttpService } from 'src/app/services/http.service';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { debounceTime, Subject, takeUntil } from 'rxjs';
+import { Commit } from 'src/app/interface/commit.interface';
 
 @Component({
   selector: 'repo-list',
@@ -18,6 +19,8 @@ export class RepoListComponent implements OnDestroy {
 
   repoList: Repository[]  = [];
 
+  loading = true;
+
   private _destroy$ = new Subject();
 
   get sortingValue() {
@@ -29,20 +32,51 @@ export class RepoListComponent implements OnDestroy {
     this.subscribeToSearchValueChanges();
   }
 
-  private fetchRepos() {
-    this.httpService.allRepos().subscribe(res => {
+  private async fetchRepos() {
+    this.httpService.allRepos().subscribe(async res => {
       this.repoList = res;
 
-      for (const repo of this.repoList) {
-        console.log(repo)
-        this.addCommits(repo)
+      if (this.repoList && this.repoList.length) {
+        await this.fillCommits();
       }
 
     })
   }
 
-  private addCommits(repo: Repository) {
-    this.httpService.addCommitToRepo(repo)
+  private async fillCommits() {
+
+    const max = this.repoList.length;
+    for (let i = 0; i < max; i++) {
+      if (this.repoList[i]) {
+
+        const commits: { commits: Commit[] } | undefined = await this.httpService.addCommitToRepo(this.repoList[i]!);
+
+        if (commits && this.repoList[i]) {
+          this.repoList[i].commits = commits.commits;
+          await this.updateCommitDate(i);
+        }
+
+      }
+    }
+  }
+
+  private async updateCommitDate(i: number) {
+    if (this.repoList[i].commits) {
+      const max = this.repoList[i].commits.length;
+
+      for (let j = 0; j < max; j++) {
+
+        if (this.repoList[i].commits[j]) {
+          const commitDate = await this.httpService.fetchCommitCreationDate(this.repoList[i], this.repoList[i].commits[j]);
+          if (commitDate) {
+            this.repoList[i].commits[j].creation = commitDate.creationDate;
+            this.loading = false;
+          }
+        }
+
+      }
+
+    }
   }
 
   private subscribeToSearchValueChanges() {

@@ -38,3 +38,32 @@
     grid-template-columns: repeat(3, 1fr);
   }
 }
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.loader__icon {
+  font-size: 80px;
+  color: $color-secondary;
+  animation: spin 2s linear infinite;
+}
+
+.loader__text {
+  font-size: 32px;
+  color: #666;
+  margin-top: 20px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

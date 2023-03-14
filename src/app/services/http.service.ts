@@ -18,8 +18,12 @@ export class HttpService {
     return this.http.post<Repository[]>(`${this.baseUrl}/.netlify/functions/fetch_repos`, {})
   }
 
-  addCommitToRepo(repo: Repository) {
-    return this.http.post<Repository>(`${this.baseUrl}/.netlify/functions/map_commits`, {repo})
+  addCommitToRepo(repo: Repository): Promise<{ commits: Commit[] } | undefined> {
+    return this.http.post<{ commits: Commit[] }>(`${this.baseUrl}/.netlify/functions/map_commits`, {repo}).toPromise()
+  }
+
+  fetchCommitCreationDate(repo: Repository, commit: Commit) {
+    return this.http.post<{ creationDate: Date }>(`${this.baseUrl}/.netlify/functions/update_commits_date`, {repo, commit}).toPromise()
   }
 
   filterReposByName(term: string) {
