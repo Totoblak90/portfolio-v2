@@ -17,6 +17,10 @@ export class CommitListComponent {
   commitList: Commit[] = [];
   repoName = ''
 
+  get repositoryLink() {
+    return 'https://github.com/Totoblak90/' + this.repoName
+  }
+
   constructor(
     public dialogRef: MatDialogRef<CommitListComponent>,
     @Inject(MAT_DIALOG_DATA) public data: CommitExpansionModule
