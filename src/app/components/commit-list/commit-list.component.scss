@@ -5,7 +5,9 @@
   h2 {
     margin-top: $margin-small;
     a {
+        font-family: $font-family-secondary !important;
         font-size: $font-size-h2-mobile;
+        font-weight: bold;
         @media (min-width: 768px) {
           font-size: $font-size-h2;
         }
