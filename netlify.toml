@@ -1,5 +1,5 @@
 [build]
-  publish = "dist/porfoliov2"
+  publish = "dist/portfolioandrepos"
   command = "ng build"
   functions = "./netlify/functions"
 [[redirects]]
