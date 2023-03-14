@@ -1,0 +1,24 @@
+@import "src/theme/variables";
+
+.title {
+  position: relative;
+  h2 {
+    margin-top: $margin-small;
+  }
+  h3 {
+    text-align: center;
+  }
+  .close {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 5px;
+    outline: none;
+    color: #000;
+    font-weight: 900;
+    font-size: $font-size-xl;
+    padding: 0 !important;
+  }
+}

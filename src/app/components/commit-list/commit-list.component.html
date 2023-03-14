@@ -1,0 +1,13 @@
+<div class="title">
+  <h2>{{ repoName }}</h2>
+  <h3>Commit list</h3>
+  <button class="close" (click)="close()">
+    <fa-icon class="close" iconName="xmark"></fa-icon>
+  </button>
+</div>
+
+<filter [commitList]="commitList" (onReset)="filter($event)" (onSubmit)="filter($event)"></filter>
+
+<ng-container *ngFor="let commit of commitList">
+  <commit [commit]="commit"></commit>
+</ng-container>

@@ -1,0 +1,21 @@
+@import "src/theme/variables";
+
+mat-accordion {
+  mat-expansion-panel {
+    padding: 5px;
+
+    .creation {
+      font-size: $font-size-default;
+      font-weight: 600;
+    }
+    .message {
+      padding: 5px;
+    }
+    a {
+      background-color: $background-color-1;
+      display: inline-block;
+      padding: $padding-xs $padding-small;
+      border-radius: 11px;
+    }
+  }
+}
