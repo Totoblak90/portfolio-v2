@@ -14,7 +14,8 @@ export class HttpService {
   constructor(private http: HttpClient) {}
 
   allRepos(): Observable<Repository[]> {
-    return this.http.get<Repository[]>(`${this.apiBaseUrl}/repositories`)
+    const baseUrl = window.location.origin;
+    return this.http.post<Repository[]>(`${baseUrl}/.netlify/functions/fetch_repos-background`, {})
   }
 
   filterReposByName(term: string) {
