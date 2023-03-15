@@ -1,11 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Proyect } from '../interface/proyect.interface';
 
 @Pipe({
   name: 'filterProyectsByWord'
 })
 export class FilterProyectsByWordPipe implements PipeTransform {
 
-  transform(proyects: {name: string, link: string, priority: number}[], searchTerm: string): {name: string, link: string, priority: number}[] {
+  transform(proyects: Proyect[], searchTerm: string): {name: string, link: string, priority: number}[] {
     try {
       if (searchTerm) {
         return proyects.filter(proyect => proyect.name.toLowerCase().includes(searchTerm.toLowerCase()))

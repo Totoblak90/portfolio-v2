@@ -12,6 +12,7 @@ import { PipesModule } from '../pipes/pipes.module';
 import { DirectivesModule } from '../directives/directives.module';
 import { HeaderComponent } from './header/header.component';
 import { ProyectListComponent } from './proyect-list/proyect-list.component';
+import { ProyectComponent } from './proyect/proyect.component';
 
 
 
@@ -24,7 +25,8 @@ import { ProyectListComponent } from './proyect-list/proyect-list.component';
     CommitComponent,
     FilterComponent,
     HeaderComponent,
-    ProyectListComponent
+    ProyectListComponent,
+    ProyectComponent
   ],
   exports: [
     RepoListComponent,
@@ -33,7 +35,8 @@ import { ProyectListComponent } from './proyect-list/proyect-list.component';
     CommitComponent,
     FilterComponent,
     HeaderComponent,
-    ProyectListComponent
+    ProyectListComponent,
+    ProyectComponent
   ],
   imports: [
     CommonModule,

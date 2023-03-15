@@ -1,11 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { Proyect } from '../interface/proyect.interface';
 
 @Pipe({
   name: 'sortProyects'
 })
 export class SortProyectsPipe implements PipeTransform {
 
-  transform(value: {name: string, link: string, priority: number}[], sortingValue: 'A-Z' | 'Z-A' | undefined): {name: string, link: string, priority: number}[] {
+  transform(value: Proyect[], sortingValue: 'A-Z' | 'Z-A' | undefined): Proyect[] {
     try {
       if (value) {
         switch (sortingValue) {

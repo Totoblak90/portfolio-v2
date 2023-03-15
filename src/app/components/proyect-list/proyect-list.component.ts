@@ -1,4 +1,5 @@
 import { Component, ElementRef } from '@angular/core';
+import { Proyect } from 'src/app/interface/proyect.interface';
 import { FiltersService } from '../../services/filters.service';
 
 @Component({
@@ -22,7 +23,7 @@ export class ProyectListComponent {
 
   constructor(private filterService: FiltersService, private elementRef: ElementRef) {}
 
-  proyectList = [
+  proyectList: Proyect[] = [
     {
       name: 'Transoceanic Marine Services',
       link: 'http://www.transoceanicmarine.com/',
