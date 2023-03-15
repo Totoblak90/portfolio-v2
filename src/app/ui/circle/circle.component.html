@@ -1,16 +1,3 @@
-<!-- <button class="circle" (click)="onClick.emit()" [ngClass]="backgroundColor" *ngIf="!isLoading; else spinner">
-
-  <ng-container [ngSwitch]="link">
-    <ng-container *ngSwitchCase="''">
-      <p>{{ text }}</p>
-    </ng-container>
-    <ng-container *ngSwitchDefault>
-      <a [href]="link" target="_blank"><p>{{ text }}</p></a>
-    </ng-container>
-  </ng-container>
-
-</button> -->
-
 <ng-container [ngSwitch]="link">
 
   <ng-container *ngSwitchCase="''">
