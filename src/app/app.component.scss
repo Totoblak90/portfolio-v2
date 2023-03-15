@@ -1,4 +1,5 @@
 @import "src/theme/variables";
+@import "src/theme/animations.scss";
 
 .background-img {
   position: fixed;
@@ -10,9 +11,11 @@
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   z-index: -1;
+  animation: fadeIn 0.3s linear;
 
   img {
     min-width: 30%;
+    max-width: calc(42.5rem / 4);;
     opacity: 0.1;
     pointer-events: none;
   }
@@ -28,6 +31,13 @@
   img:nth-child(7), img:nth-child(8), img:nth-child(9) {
     justify-self: center;
   }
+}
+
+.background-img.top {
+  display: grid;
+}
+.background-img.bottom {
+  display: none;
 }
 
 

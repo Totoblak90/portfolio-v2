@@ -12,6 +12,14 @@ section {
   margin: auto;
   h2 {
     text-align: left;
+    a {
+      font-family: $font-family-secondary !important;
+      font-size: $font-size-h2-mobile;
+      font-weight: 400;
+      @media (min-width: 768px) {
+        font-size: $font-size-h2;
+      }
+  }
   }
 
   .repo-list {

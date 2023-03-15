@@ -1,7 +1,7 @@
 
 <section>
 
-  <h2>Repositories  <span [ngClass]="{'disappear': !this.fetchingData}">(Sorting and filtering will be available after loading repos ends)</span></h2>
+  <h2><a href="https://github.com/Totoblak90?tab=repositories" target="_blank">Repositories <fa-icon iconName="link"></fa-icon> </a><span [ngClass]="{'disappear': !this.fetchingData}">(Sorting and filtering will be available after loading repos ends)</span></h2>
 
   <article class="repo-list" *ngIf="repoList.length">
     <ng-container *ngFor="let repo of (repoList | filterByWord:searchTerm | sortRepos:sortingValue)">

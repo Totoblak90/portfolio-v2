@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { debounceTime, Subject, takeUntil } from 'rxjs';
 import { FiltersService } from '../../services/filters.service';
@@ -21,7 +21,12 @@ export class HeaderComponent {
     return this.filterForm.get('sort')?.value;
   }
 
-  constructor(private fb: FormBuilder, private filtersService: FiltersService) {
+
+  get getNativeElement(): ElementRef {
+    return this.elementRef;
+  }
+
+  constructor(private fb: FormBuilder, private filtersService: FiltersService, private elementRef: ElementRef) {
     this.subscribeToSearchValueChanges();
     this.subscribeToSortValueChanges();
   }

@@ -26,10 +26,6 @@ export class HttpService {
     return this.http.post<{ creationDate: Date }>(`${this.baseUrl}/.netlify/functions/update_commits_date`, {repo, commit}).toPromise()
   }
 
-  filterReposByName(term: string) {
-    return this.http.get<Repository[]>(`${this.apiBaseUrl}/repositories/search?term=${term}`)
-  }
-
   allCommits(repo_id: number): Observable<Commit[]> {
     return this.http.get<Commit[]>(`${this.apiBaseUrl}/commits?repo_id=${repo_id}`)
   }

@@ -1,4 +1,16 @@
-<div class="background-img">
+<div class="background-img top" #backgroundCoding>
+  <img src="assets/images/angular.svg" alt="Angular logo" />
+  <img src="assets/images/node.svg" alt="NodeJs logo" />
+  <img src="assets/images/terminal.svg" alt="Terminal logo" />
+  <img src="assets/images/code-solid.svg" alt="An icon that represents coding" />
+  <img src="assets/images/globe-solid.svg" alt="An icon that represents the world" />
+  <img src="assets/images/computer-solid.svg" alt="A computer" />
+  <img src="assets/images/google.svg" alt="Google Icon" />
+  <img src="assets/images/angular.svg" alt="Angular logo" />
+  <img src="assets/images/node.svg" alt="NodeJs logo" />
+</div>
+
+<div class="background-img bottom" #backgroundGithub>
   <img src="assets/images/github-mark.svg" alt="Github logo" />
   <img src="assets/images/github-mark.svg" alt="Github logo" />
   <img src="assets/images/github-mark.svg" alt="Github logo" />
@@ -10,9 +22,10 @@
   <img src="assets/images/github-mark.svg" alt="Github logo" />
 </div>
 
-<main>
 
-  <app-header></app-header>
-  <proyect-list></proyect-list>
+
+<main #main>
+  <app-header #header></app-header>
+  <proyect-list #proyectList></proyect-list>
   <repo-list></repo-list>
 </main>

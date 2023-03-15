@@ -14,7 +14,7 @@ export class FilterProyectsByWordPipe implements PipeTransform {
       }
 
     } catch (error) {
-      console.warn('Error en filter by word pipe: ', error)
+      console.warn('Error en filter proyects by word pipe: ', error)
       return proyects;
     }
   }

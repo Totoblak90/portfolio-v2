@@ -7,7 +7,6 @@ export class SortProyectsPipe implements PipeTransform {
 
   transform(value: {name: string, link: string}[], sortingValue: 'A-Z' | 'Z-A' | undefined): {name: string, link: string}[] {
     try {
-      console.log(value)
       if (value) {
         switch (sortingValue) {
          case 'A-Z':

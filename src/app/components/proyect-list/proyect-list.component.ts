@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
 import { FiltersService } from '../../services/filters.service';
 
 @Component({
@@ -16,7 +16,11 @@ export class ProyectListComponent {
     return this.filterService.sortingValue.value
   }
 
-  constructor(private filterService: FiltersService) {}
+  get getNativeElement(): ElementRef {
+    return this.elementRef;
+  }
+
+  constructor(private filterService: FiltersService, private elementRef: ElementRef) {}
 
   proyectList = [
     {
@@ -42,6 +46,10 @@ export class ProyectListComponent {
     {
       name: 'Beru',
       link: 'https://beru.io'
+    },
+    {
+      name: 'Green mining',
+      link: 'https://green-mining.vercel.app/'
     }
   ]
 
