@@ -4,7 +4,14 @@
   <h2>Proyects</h2>
 
   <article class="proyect-list">
-    <circle *ngFor="let proyect of (proyectList | filterProyectsByWord:searchTerm | sortProyects:sortingValue)" [text]="proyect.name" [link]="proyect.link" bgColor="proyects"></circle>
+
+    <circle
+      *ngFor="let proyect of (proyectList | filterProyectsByWord:searchTerm | sortProyects:sortingValue)"
+      [text]="proyect.name"
+      [link]="proyect.link"
+      [bgColor]="proyect.priority === 1 ? 'proyects-priority1' : proyect.priority === 2 ? 'proyects-priority2' : 'proyects-priority3'"
+    ></circle>
+
   </article>
 
 </section>

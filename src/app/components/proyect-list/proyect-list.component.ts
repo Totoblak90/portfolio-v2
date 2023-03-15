@@ -25,47 +25,58 @@ export class ProyectListComponent {
   proyectList = [
     {
       name: 'Transoceanic Marine Services',
-      link: 'http://www.transoceanicmarine.com/'
+      link: 'http://www.transoceanicmarine.com/',
+      priority: 1
     },
     {
       name: 'Lion languages',
-      link: 'https://lionlanguages.com/'
+      link: 'https://lionlanguages.com/',
+      priority: 1
     },
     {
       name: 'DLN Construcciones',
-      link: 'https://dlnconstrucciones.net'
+      link: 'https://dlnconstrucciones.net',
+      priority: 2
     },
     {
       name: 'Omnifood',
-      link: 'https://infallible-cray-447420.netlify.app/'
+      link: 'https://infallible-cray-447420.netlify.app/',
+      priority: 1
     },
     {
       name: 'Tailwind',
-      link: 'https://eloquent-rabanadas-493fb4.netlify.app/'
+      link: 'https://eloquent-rabanadas-493fb4.netlify.app/',
+      priority: 2
     },
     {
       name: 'Beru',
-      link: 'https://beru.io'
+      link: 'https://beru.io',
+      priority: 1
     },
     {
       name: 'Green mining',
-      link: 'https://green-mining.vercel.app/'
+      link: 'https://green-mining.vercel.app/',
+      priority: 2
     },
     {
       name: 'PorfolioV2',
-      link: 'https://subtle-dolphin-3c58ad.netlify.app/'
+      link: 'https://subtle-dolphin-3c58ad.netlify.app/',
+      priority: 2
     },
     {
       name: 'PortfolioV1',
-      link: 'https://laughing-khorana-2fe8f2.netlify.app/'
+      link: 'https://laughing-khorana-2fe8f2.netlify.app/',
+      priority: 3
     },
     {
       name: 'Some dashboard...',
-      link: 'https://distracted-pike-19cbd1.netlify.app/'
+      link: 'https://distracted-pike-19cbd1.netlify.app/',
+      priority: 3
     },
     {
       name: 'Angular Pipes',
-      link: 'https://friendly-murdock-fa3d5a.netlify.app/'
+      link: 'https://friendly-murdock-fa3d5a.netlify.app/',
+      priority: 3
     }
   ]
 

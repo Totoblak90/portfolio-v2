@@ -59,9 +59,18 @@
     background-color: $background-color-repos;
 }
 
-.circle.color-proyects::before {
-  background-color: $background-color-proyects;
+.circle.color-proyects-priority1::before {
+  background-color: $background-color-proyects-priority1;
 }
+
+.circle.color-proyects-priority2::before {
+  background-color: $background-color-proyects-priority2;
+}
+
+.circle.color-proyects-priority3::before {
+  background-color: $background-color-proyects-priority3;
+}
+
 
 .circle.color-danger::before {
   background-color: $background-color-danger;
