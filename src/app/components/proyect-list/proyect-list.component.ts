@@ -50,6 +50,22 @@ export class ProyectListComponent {
     {
       name: 'Green mining',
       link: 'https://green-mining.vercel.app/'
+    },
+    {
+      name: 'PorfolioV2',
+      link: 'https://subtle-dolphin-3c58ad.netlify.app/'
+    },
+    {
+      name: 'PortfolioV1',
+      link: 'https://laughing-khorana-2fe8f2.netlify.app/'
+    },
+    {
+      name: 'Some dashboard...',
+      link: 'https://distracted-pike-19cbd1.netlify.app/'
+    },
+    {
+      name: 'Angular Pipes',
+      link: 'https://friendly-murdock-fa3d5a.netlify.app/'
     }
   ]
 
