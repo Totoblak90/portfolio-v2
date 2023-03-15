@@ -47,7 +47,7 @@ export class ProyectListComponent {
     {
       name: 'Tailwind',
       link: 'https://eloquent-rabanadas-493fb4.netlify.app/',
-      priority: 2
+      priority: 3
     },
     {
       name: 'Beru',
