@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { take } from 'rxjs/operators';
 import { Commit } from 'src/app/interface/commit.interface';
 import { HttpService } from 'src/app/services/http.service';
+import { FiltersService } from '../../services/filters.service';
 
 @Component({
   selector: 'filter',
@@ -33,7 +34,11 @@ export class FilterComponent implements OnInit {
     else return false;
   }
 
-  constructor(private httpService: HttpService, private fb: FormBuilder) {}
+  get selectedDates() {
+    return this.filterService.filterByDate.value
+  }
+
+  constructor(private filterService: FiltersService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.commitList.sort((prevCommit, nextCommit) => prevCommit.creation > nextCommit.creation ? 1 : -1)
@@ -41,8 +46,7 @@ export class FilterComponent implements OnInit {
 
   reset() {
     this.filterForm.reset();
-    this.httpService.allCommits(this.commitList[0].repo_id).pipe(take(1))
-    .subscribe(res => this.onReset.emit((res.sort((prevCommit, nextCommit) => prevCommit.creation > nextCommit.creation ? 1 : -1))))
+    this.filterService.filterByDate.next({})
   }
 
   filter() {
@@ -62,17 +66,7 @@ export class FilterComponent implements OnInit {
 
     if (this.filterForm.valid) {
 
-      this.httpService.fiterCommitsByDate(startDate, endDate, this.commitList[0].repo_id)
-      .subscribe(res => {
-
-        if (res.length) {
-          this.onSubmit.emit((res.sort((prevCommit, nextCommit) => prevCommit.creation > nextCommit.creation ? 1 : -1)));
-          this.filterForm.reset()
-        } else {
-          this.filterForm.setErrors({noResults: true})
-        }
-
-      })
+      this.filterService.filterByDate.next(this.filterForm.value)
     }
   }
 }

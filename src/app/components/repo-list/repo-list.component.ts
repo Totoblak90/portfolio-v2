@@ -12,10 +12,10 @@ import { FiltersService } from '../../services/filters.service';
 })
 export class RepoListComponent {
 
-  repoList: Repository[]  = fakeRepos;
+  repoList: Repository[]  = [];
 
-  loading = false;
-  fetchingData = false;
+  loading = true;
+  fetchingData = true;
 
   get searchTerm() {
     if (this.fetchingData) return '';
@@ -28,7 +28,7 @@ export class RepoListComponent {
   }
 
   constructor(private httpService: HttpService, private filtersService: FiltersService) {
-    // this.fetchRepos();
+    this.fetchRepos();
   }
 
   private async fetchRepos() {
@@ -40,7 +40,6 @@ export class RepoListComponent {
           await this.fillCommits();
         } catch (error) {
           console.log('fetchRepos: ', error);
-          this.fetchingData = false;
         }
       }
 

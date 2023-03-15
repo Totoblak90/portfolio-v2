@@ -8,6 +8,6 @@
 
 <filter [commitList]="commitList" (onReset)="filter($event)" (onSubmit)="filter($event)"></filter>
 
-<ng-container *ngFor="let commit of commitList">
+<ng-container *ngFor="let commit of (commitList | filterByDate:selectedDates)">
   <commit [commit]="commit"></commit>
 </ng-container>

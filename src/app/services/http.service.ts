@@ -25,12 +25,4 @@ export class HttpService {
   fetchCommitCreationDate(repo: Repository, commit: Commit) {
     return this.http.post<{ creationDate: Date }>(`${this.baseUrl}/.netlify/functions/update_commits_date`, {repo, commit}).toPromise()
   }
-
-  allCommits(repo_id: number): Observable<Commit[]> {
-    return this.http.get<Commit[]>(`${this.apiBaseUrl}/commits?repo_id=${repo_id}`)
-  }
-
-  fiterCommitsByDate(startDate: Date, endDate: Date, repo_id: number): Observable<Commit[]> {
-    return this.http.get<Commit[]>(`${this.apiBaseUrl}/commits/search?start_date=${startDate}&end_date=${endDate}&repo_id=${repo_id}`)
-  }
 }

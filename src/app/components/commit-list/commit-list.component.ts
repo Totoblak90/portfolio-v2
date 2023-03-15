@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Commit } from 'src/app/interface/commit.interface';
+import { FiltersService } from '../../services/filters.service';
 
 interface CommitExpansionModule {
   commits: Commit[],
@@ -21,9 +22,14 @@ export class CommitListComponent {
     return 'https://github.com/Totoblak90/' + this.repoName
   }
 
+  get selectedDates() {
+    return this.filtersService.filterByDate.value
+  }
+
   constructor(
     public dialogRef: MatDialogRef<CommitListComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: CommitExpansionModule
+    @Inject(MAT_DIALOG_DATA) public data: CommitExpansionModule,
+    private filtersService: FiltersService
   ) {
     this.commitList = data.commits;
     this.repoName = data.repoName;

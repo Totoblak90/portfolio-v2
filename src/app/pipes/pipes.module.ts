@@ -4,6 +4,7 @@ import { SortReposPipe } from './sort-repos.pipe';
 import { FilterByWordPipe } from './filter-by-word.pipe';
 import { FilterProyectsByWordPipe } from './filter-proyects-by-word.pipe';
 import { SortProyectsPipe } from './sort-proyects.pipe';
+import { FilterCommitsByDatePipe } from './filter-commits-by-date.pipe';
 
 
 
@@ -12,13 +13,15 @@ import { SortProyectsPipe } from './sort-proyects.pipe';
     SortReposPipe,
     FilterByWordPipe,
     FilterProyectsByWordPipe,
-    SortProyectsPipe
+    SortProyectsPipe,
+    FilterCommitsByDatePipe
   ],
   exports: [
     SortReposPipe,
     FilterByWordPipe,
     FilterProyectsByWordPipe,
-    SortProyectsPipe
+    SortProyectsPipe,
+    FilterCommitsByDatePipe
   ],
   imports: [
     CommonModule
