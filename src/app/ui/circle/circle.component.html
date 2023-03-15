@@ -1,4 +1,4 @@
-<button class="circle" (click)="onClick.emit()" [ngClass]="backgroundColor" *ngIf="!isLoading; else spinner">
+<!-- <button class="circle" (click)="onClick.emit()" [ngClass]="backgroundColor" *ngIf="!isLoading; else spinner">
 
   <ng-container [ngSwitch]="link">
     <ng-container *ngSwitchCase="''">
@@ -9,7 +9,23 @@
     </ng-container>
   </ng-container>
 
-</button>
+</button> -->
+
+<ng-container [ngSwitch]="link">
+
+  <ng-container *ngSwitchCase="''">
+    <button class="circle" (click)="onClick.emit()" [ngClass]="backgroundColor" *ngIf="!isLoading; else spinner">
+      <p>{{ text }}</p>
+    </button>
+  </ng-container>
+
+  <ng-container *ngSwitchDefault>
+    <a [href]="link" target="_blank" class="circle" (click)="onClick.emit()" [ngClass]="backgroundColor" *ngIf="!isLoading; else spinner">
+      <p>{{ text }}</p>
+    </a>
+  </ng-container>
+
+</ng-container>
 
 
 
