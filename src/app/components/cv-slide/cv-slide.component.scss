@@ -8,8 +8,9 @@
 
   background-color: $background-color-proyects-priority1;
 
-  max-width: 76.8rem;
+  max-width: 768px;
   height: 30rem;
+  max-height: 425px;
   overflow-y: auto;
 
   &::-webkit-scrollbar {
@@ -39,9 +40,6 @@
   .tasks-list{
     list-style: none;
     font-size: $font-size-default;
-    @media (min-width: 768px) {
-      font-size: $font-size-lg;
-    }
   }
   .task{
     margin-left: $margin-small;

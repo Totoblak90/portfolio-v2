@@ -35,10 +35,6 @@ header {
         color: #000;
         font-weight: 900;
         font-size: $font-size-default;
-
-        @media (min-width: 768px) {
-          font-size: $font-size-xl;
-        }
       }
     }
 

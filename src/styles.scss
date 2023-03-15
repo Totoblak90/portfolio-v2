@@ -61,6 +61,14 @@ html {
   &::-webkit-scrollbar {
     width: 0.2rem !important;
   }
+
+  @media (min-width: 768px) {
+    font-size: 80%;
+  }
+
+  @media (min-width: 1024px) {
+    font-size: 105%;
+  }
 }
 
 body {
@@ -110,7 +118,6 @@ h1 {
   margin-bottom: $margin-small;
   text-align: center;
   @media (min-width: 768px) {
-    font-size: $font-size-h1;
     margin-bottom: $margin-medium;
   }
 }
@@ -121,7 +128,6 @@ h2 {
   margin-bottom: $margin-medium;
   text-align: center;
   @media (min-width: 768px) {
-    font-size: $font-size-h2;
     margin-bottom: $margin-large;
   }
 }
@@ -131,7 +137,6 @@ h3 {
   line-height: $line-height-normal;
   margin-bottom: $margin-small;
   @media (min-width: 768px) {
-    font-size: $font-size-h3;
     margin-bottom: $margin-medium;
   }
 }
@@ -140,9 +145,6 @@ p, a {
   font-size: $font-size-default;
   line-height: $line-height-big;
   text-decoration: none;
-  @media (min-width: 768px) {
-    font-size: $font-size-xl;
-  }
 }
 
 .expansion-panel {
@@ -157,9 +159,6 @@ mat-error {
     color: $color-danger;
     font-size: $font-size-sm;
     text-align: center;
-    @media (min-width: 768px) {
-      font-size: $font-size-default;
-    }
   }
 }
 
