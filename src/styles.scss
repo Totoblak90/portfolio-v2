@@ -107,11 +107,11 @@ a {
 h1 {
   font-size: $font-size-h1-mobile;
   line-height: $line-height-big;
-  margin-bottom: $margin-large;
+  margin-bottom: $margin-small;
   text-align: center;
   @media (min-width: 768px) {
     font-size: $font-size-h1;
-    margin-bottom: $margin-huge;
+    margin-bottom: $margin-medium;
   }
 }
 
