@@ -1,0 +1,64 @@
+@import "src/theme/variables";
+
+.card {
+  position: relative;
+
+  border: 3px solid $color-primary;
+  border-radius: 11px;
+
+  background-color: $background-color-proyects-priority1;
+
+  max-width: 76.8rem;
+  height: 42.5rem;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 0.5rem !important;
+  }
+
+  margin: auto;
+
+  padding: $padding-small;
+
+
+  .company {
+    font-weight: $weight-bold;
+  }
+  .date {
+    font-weight: $weight-bold;
+
+  }
+  .languages, .frameworks, .description {
+    font-weight: $weight-bold;
+    span {
+      font-weight: 400;
+    }
+  }
+
+
+  .tasks-list{
+    list-style: none;
+    font-size: $font-size-default;
+    @media (min-width: 768px) {
+      font-size: $font-size-lg;
+    }
+  }
+  .task{
+    margin-left: $margin-small;
+    &:not(:last-child) {
+      margin-bottom: $margin-small;
+    }
+  }
+
+
+  .line {
+    margin: $margin-small 0;
+  }
+
+  fa-icon {
+    position: sticky;
+    left:  100%;
+    bottom: 0;
+    font-size: $font-size-default;
+  }
+}

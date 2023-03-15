@@ -13,9 +13,9 @@ import { DirectivesModule } from '../directives/directives.module';
 import { HeaderComponent } from './header/header.component';
 import { ProyectListComponent } from './proyect-list/proyect-list.component';
 import { ProyectComponent } from './proyect/proyect.component';
-
-
-
+import { CvContainerComponent } from './cv-container/cv-container.component';
+import { SwiperModule } from 'swiper/angular';
+import { CvSlideComponent } from './cv-slide/cv-slide.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,9 @@ import { ProyectComponent } from './proyect/proyect.component';
     FilterComponent,
     HeaderComponent,
     ProyectListComponent,
-    ProyectComponent
+    ProyectComponent,
+    CvContainerComponent,
+    CvSlideComponent
   ],
   exports: [
     RepoListComponent,
@@ -36,7 +38,8 @@ import { ProyectComponent } from './proyect/proyect.component';
     FilterComponent,
     HeaderComponent,
     ProyectListComponent,
-    ProyectComponent
+    ProyectComponent,
+    CvContainerComponent
   ],
   imports: [
     CommonModule,
@@ -44,7 +47,8 @@ import { ProyectComponent } from './proyect/proyect.component';
     UiModule,
     AngularMaterialModule,
     PipesModule,
-    DirectivesModule
+    DirectivesModule,
+    SwiperModule
   ]
 })
 export class ComponentsModule { }

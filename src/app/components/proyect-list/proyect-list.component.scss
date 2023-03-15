@@ -2,15 +2,21 @@
 @import "src/theme/animations.scss";
 
 section {
-  max-width: 128rem;
   margin: auto;
+  margin-bottom: $margin-large;
+
   h2 {
     text-align: left;
+    span {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
   }
 
   .proyect-list {
     margin: auto;
-    margin-bottom: $margin-large;
+
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     row-gap: $margin-large;

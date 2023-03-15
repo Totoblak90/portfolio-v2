@@ -1,7 +1,7 @@
 
 <section>
 
-  <h2>Proyects</h2>
+  <h2>Proyects <span> <priority [priority]="1"></priority> <priority [priority]="2"></priority> <priority [priority]="3"></priority> </span> </h2>
 
   <article class="proyect-list">
     <proyect  *ngFor="let proyect of (proyectList | filterProyectsByWord:searchTerm | sortProyects:sortingValue)" [proyect]="proyect"></proyect>

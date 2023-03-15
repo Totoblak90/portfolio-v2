@@ -12,7 +12,6 @@ export class ProyectComponent {
   get priority() {
     if (this.proyect?.priority === 1) return  'proyects-priority1';
     if (this.proyect?.priority === 2) return  'proyects-priority2';
-    if (this.proyect?.priority === 3) return  'proyects-priority3';
-    return 'proyects-priority1';
+    return  'proyects-priority3';
   }
 }

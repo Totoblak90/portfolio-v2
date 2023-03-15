@@ -40,6 +40,11 @@ $github-api-proj-client-theme: mat.define-light-theme((
 @import "./theme/variables";
 @import "./theme/utilities.scss";
 
+@import "swiper/scss";
+@import "swiper/scss/navigation";
+@import "swiper/scss/pagination";
+
+
 * {
   box-sizing: inherit;
   margin: 0;
@@ -158,3 +163,10 @@ mat-error {
   }
 }
 
+.swiper-button-prev, .swiper-button-next {
+  color: $color-primary;
+  display: none;
+  @media (min-width: 525px) {
+    display: flex;
+  }
+}

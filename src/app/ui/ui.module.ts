@@ -4,6 +4,7 @@ import { InputComponent } from './input/input.component';
 import { FaIconComponent } from './fa-icon/fa-icon.component';
 import { DirectivesModule } from '../directives/directives.module';
 import { CircleComponent } from './circle/circle.component';
+import { PriorityComponent } from './priority/priority.component';
 
 
 
@@ -12,11 +13,13 @@ import { CircleComponent } from './circle/circle.component';
     InputComponent,
     FaIconComponent,
     CircleComponent,
+    PriorityComponent,
   ],
   exports: [
     InputComponent,
     FaIconComponent,
-    CircleComponent
+    CircleComponent,
+    PriorityComponent,
   ],
   imports: [
     CommonModule,

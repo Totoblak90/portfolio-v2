@@ -1,0 +1,9 @@
+<section>
+  <h2>CV <a href="assets/cv.pdf" download><fa-icon iconName="download"></fa-icon></a> </h2>
+
+  <swiper [config]="swiperConfig">
+    <ng-template swiperSlide *ngFor="let cvItem of cv; let i = index">
+        <cv-slide [cvItem]="cvItem"></cv-slide>
+    </ng-template>
+  </swiper>
+</section>

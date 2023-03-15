@@ -1,0 +1,11 @@
+@import "src/theme/variables";
+
+section {
+  margin-bottom: $margin-large;
+  h2 {
+    text-align: left;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}

@@ -15,9 +15,12 @@
 
   img {
     min-width: 30%;
-    max-width: calc(42.5rem / 4);;
-    opacity: 0.1;
+    max-width: calc(42.5rem / 4);
+    opacity: 0.05;
     pointer-events: none;
+    @media (min-width:768px) {
+      opacity: 0.075;
+    }
   }
 
   img:nth-child(1), img:nth-child(2), img:nth-child(3) {
@@ -45,6 +48,11 @@ main {
   padding:  0 $padding-xs;
   width: 100%;
   margin-top: 177px;
+
+  .container {
+    max-width: 128rem;
+    margin: auto;
+  }
 
   @media (min-width: 505px) {
     margin-top: 141px;

@@ -1,0 +1,16 @@
+<div *ngIf="cvItem" class="card">
+  <h3 class="position">{{ cvItem.position }}</h3>
+  <p class="company">{{ cvItem.company }}</p>
+  <p class="date">{{ cvItem.date }}</p>
+  <hr class="line">
+  <p class="languages">Languages: <span>{{ cvItem.languages }}</span></p>
+  <p class="frameworks">Frameworks: <span>{{ cvItem.frameworks }}</span></p>
+  <p class="description">Description: <span>{{ cvItem.proyectDescription }}</span></p>
+  <hr class="line">
+  <ul class="tasks-list">
+    Tasks:
+    <li class="task" *ngFor="let task of cvItem.tasks" >{{ task }}</li>
+  </ul>
+
+  <fa-icon class="down" iconName="down-long"></fa-icon>
+</div>
