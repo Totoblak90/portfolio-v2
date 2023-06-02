@@ -25,13 +25,13 @@ export class ProyectListComponent {
 
   proyectList: Proyect[] = [
     {
-      name: 'Transoceanic Marine Services',
-      link: 'http://www.transoceanicmarine.com/',
+      name: 'Mi amigo animal',
+      link: 'www.miamigoanimal.com',
       priority: 1
     },
     {
-      name: 'Lion languages',
-      link: 'https://lionlanguages.com/',
+      name: 'Transoceanic Marine Services',
+      link: 'http://www.transoceanicmarine.com/',
       priority: 1
     },
     {
