@@ -25,8 +25,8 @@ export class ProyectListComponent {
 
   proyectList: Proyect[] = [
     {
-      name: 'Mi amigo animal',
-      link: 'https://www.miamigoanimal.com',
+      name: 'Esfera mascota',
+      link: 'https://esferamascota.com',
       priority: 1
     },
     {
